@@ -1,0 +1,10 @@
+{% load gheymat %}{% autoescape off %}قیمت | {{ date_fa }}، ساعت {{ time_fa }}
+{% if is_demo %}
+(داده‌ی نمایشی)
+{% endif %}{% for section in sections %}{% if section.rows %}
+== {{ section.title }} ==
+{% for row in section.rows %}{{ row.name_fa }}: {{ row.price_toman|toman }} تومان | ${{ row.price_usd|usd }} | {{ row.change_24h|change }}
+{% endfor %}{% endif %}{% endfor %}
+قیمت‌های لحظه‌ای: {{ site_url }}
+لغو عضویت: {{ unsubscribe_url }}
+{% endautoescape %}
